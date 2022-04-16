@@ -2,9 +2,6 @@ import os
 import shutil
 import pytest
 
-abc = [1, 8, 3, 4, 5, 6, 7]
-efg = [9, 9, 4, 3, 24, 6, 12, 13]
-coin_flips = [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 
 # 1: Task didn't specify order of vectors so I am looking at first vector and check elements in loop if they appear in second vector.
@@ -13,7 +10,7 @@ def find_repeated_number(vector1, vector2):
     first_repeated = None
     for obj in vector1:
         for obj2 in vector2:
-            if obj == obj2:
+            if obj == obj2:   #if we find first repeated, break the loop and rreturn value
                 first_repeated = obj
                 return first_repeated
 
@@ -27,11 +24,11 @@ def find_file(path):
     arr = os.listdir(path)
     for file in arr:
         user_id = os.stat(path + file).st_uid
-        if user_id == 0:
+        if user_id == 0:               #Check if owner is admin
             is_exe = shutil.which(file, path=path)
-            if is_exe is not None:
+            if is_exe is not None:                  #Check if executable
                 size = os.path.getsize(path + file)
-                if size < byte_size:
+                if size < byte_size:                       #check size
                     path_to_file = path + file
                     print("File: " + path_to_file)
                     return path_to_file
@@ -56,7 +53,7 @@ def min_permutations(sequence):
             else:
                 flip_sequence[i + 1] = 0
             counter0 += 1
-    # 2nd way
+    # 2nd way - flip first value and check if it is faster
     if flip_sequence2[0] == 0:
         flip_sequence2[0] = 1
     else:
