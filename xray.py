@@ -65,4 +65,5 @@ def load_xray(key):
 
 
 if __name__ == "__main__":
-    load_xray()
+    issue = input("Enter a Issue: ")
+    load_xray(issue)
