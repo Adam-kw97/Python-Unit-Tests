@@ -4,9 +4,9 @@ import json
 from io import BytesIO
 from zipfile import ZipFile
 
-
 auth_json = {"client_id": "your_client_id",
              "client_secret": "your_secret_client_id"}
+
 
 def get_test_plan(key):
     try:
@@ -57,10 +57,8 @@ def parse_test_plan(data):
 
 
 def load_xray(key):
-    global _logger
     test_plan = get_test_plan(key)
     time.sleep(1)
-
 
     if test_plan is not None:
         return parse_test_plan(test_plan)
